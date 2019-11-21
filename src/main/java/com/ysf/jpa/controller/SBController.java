@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sb")
-public class JPAController {
+public class SBController {
     @Autowired
     private ISBRepository isbRepository;
 
@@ -75,6 +75,7 @@ public class JPAController {
         return isbRepository.findAll(pageable).getContent();
     }
 
+    //多表查询
 
 
 }
