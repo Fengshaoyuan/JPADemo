@@ -21,49 +21,49 @@ import java.util.List;
 @RequestMapping("/sb")
 public class SBController {
     @Autowired
-    private ISBRepository isbRepository;
+    private ISBRepository iSbRepository;
 
     //查询
     @RequestMapping(value = "/findAll", method = {RequestMethod.GET})
     @ApiOperation(value = "查询所有数据")
     @ResponseBody
     public List<SB> findAll() {
-        return isbRepository.findAll();
+        return iSbRepository.findAll();
     }
 
     @RequestMapping(value = "/findById", method = {RequestMethod.GET})
     @ApiOperation(value = "根据主键查询数据")
     @ResponseBody
     public SB findById(@RequestParam(value = "主键ID") String id) {
-        return isbRepository.findById(id);
+        return iSbRepository.findById(id);
     }
 
     @RequestMapping(value = "/findAllByXAndY", method = {RequestMethod.GET})
     @ApiOperation(value = "根据属性（x和y）查询数据")
     @ResponseBody
     public List<SB> findAllByXAndY(@RequestParam(value = "经度") String x, @RequestParam(value = "纬度") String y) {
-        return isbRepository.findAllByXAndY(x, y);
+        return iSbRepository.findAllByXAndY(x, y);
     }
 
     @RequestMapping(value = "/findAllByX", method = {RequestMethod.GET})
     @ApiOperation(value = "根据属性（x）查询数据")
     @ResponseBody
     public List<SB> findAllByX(@RequestParam(value = "经度") String x) {
-        return isbRepository.findAllByX(x);
+        return iSbRepository.findAllByX(x);
     }
 
     @RequestMapping(value = "/findAllOrderBySbTimeDesc", method = {RequestMethod.GET})
     @ApiOperation(value = "查询所有并按属性排序—逆序")
     @ResponseBody
     public List<SB> findAllOrderBySbTimeDesc() {
-        return isbRepository.findAllByOrderBySbTimeDesc();
+        return iSbRepository.findAllByOrderBySbTimeDesc();
     }
 
     @RequestMapping(value = "/findAllOrderBySbTime", method = {RequestMethod.GET})
     @ApiOperation(value = "查询所有并按属性排序—顺序")
     @ResponseBody
     public List<SB> findAllOrderBySbTime() {
-        return isbRepository.findAllByOrderBySbTime();
+        return iSbRepository.findAllByOrderBySbTime();
     }
 
     //分页 查询
@@ -72,7 +72,7 @@ public class SBController {
     @ResponseBody
     public List<SB> findAllPage(@RequestParam(value = "页数") int page, @RequestParam(value = "条数") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return isbRepository.findAll(pageable).getContent();
+        return iSbRepository.findAll(pageable).getContent();
     }
 
     //多表查询
